@@ -3,13 +3,15 @@
 
 
     //Actividad Login:
-
     <string name="login_textEmail">Email</string>
     <string name="login_textPassword">Password</string>
     <string name="login_btnIniciarSesion">Iniciar sesión</string>
     <string name="login_btnRegistrar">Registrar</string>
 
-
+    //Actividad Menu:
+    <string name="menu_btnCrearEvento">Crear Evento</string>
+    <string name="menu_btnListaEventos">Lista de eventos</string>
+    <string name="menu_btnEscanerQR">Escaner QR</string>
 
 
 </resources>

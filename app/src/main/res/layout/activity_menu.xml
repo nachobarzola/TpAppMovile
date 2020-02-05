@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Presentacion.MenuActivity"
+    android:background="@color/colorFondoPrincipal">
+
+    <Button
+        android:id="@+id/btn_crearEvento"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:text="@string/menu_btnCrearEvento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/colorFondoPrincipal"
+        android:background="@drawable/btn_iniciarsesion"/>
+
+    <Button
+        android:id="@+id/btn_listaEventos"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/menu_btnListaEventos"
+        app:layout_constraintEnd_toEndOf="@+id/btn_crearEvento"
+        app:layout_constraintStart_toStartOf="@+id/btn_crearEvento"
+        app:layout_constraintTop_toBottomOf="@+id/btn_crearEvento"
+        android:textColor="@color/colorFondoPrincipal"
+        android:background="@drawable/btn_iniciarsesion"
+        />
+
+    <Button
+        android:id="@+id/btn_escanerQR"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/menu_btnEscanerQR"
+        app:layout_constraintEnd_toEndOf="@+id/btn_listaEventos"
+        app:layout_constraintStart_toStartOf="@+id/btn_listaEventos"
+        app:layout_constraintTop_toBottomOf="@+id/btn_listaEventos"
+        android:textColor="@color/colorFondoPrincipal"
+        android:background="@drawable/btn_iniciarsesion"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
