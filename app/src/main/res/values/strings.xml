@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AppMovil</string>
+
+
+    //Actividad Login:
+
+    <string name="login_textEmail">Email</string>
+    <string name="login_textPassword">Password</string>
+    <string name="login_btnIniciarSesion">Iniciar sesión</string>
+    <string name="login_btnRegistrar">Registrar</string>
+
+
+
+
 </resources>
