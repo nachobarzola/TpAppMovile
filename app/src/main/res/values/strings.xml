@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppMovil</string>
+    <string name="app_name">Control Eventos QR</string>
 
 
     //Actividad Login:
@@ -14,6 +14,21 @@
     <string name="menu_btnCrearEvento">Crear Evento</string>
     <string name="menu_btnListaEventos">Lista de eventos</string>
     <string name="menu_btnEscanerQR">Escaner QR</string>
+
+    //Actividad crear evento
+    <string name="CrearEvento_textTitulo">Registro de nuevo evento</string>
+    <string name="crearEvento_textNombre">Nombre</string>
+    <string name="crearEvento_textDescripcion">Descripción</string>
+    <string name="crearEvento_btnFecha">Fecha</string>
+    <string name="crearEvento_textFecha">dd/mm/aaaa</string>
+    <string name="crearEvento_btnHora">Hora</string>
+    <string name="crearEvento_textHora">hh:mm</string>
+    <string name="crearEvento_textDireccion">Dirección</string>
+
+
+
+
+
 
 
 </resources>
