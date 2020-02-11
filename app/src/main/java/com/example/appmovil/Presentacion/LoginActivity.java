@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.service.autofill.OnClickAction;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +15,8 @@ import android.widget.EditText;
 
 import com.example.appmovil.R;
 
-import dao.UsuariosRepository;
-import models.Usuario;
+import com.example.appmovil.Dominio.dao.UsuariosRepository;
+import com.example.appmovil.Dominio.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
     private Button btn_iniciarSesion;
