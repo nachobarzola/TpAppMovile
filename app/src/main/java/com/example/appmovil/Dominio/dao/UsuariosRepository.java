@@ -15,7 +15,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UsuariosRepository {
-    public static String _SERVER="http://127.0.0.1:5000/";
+    public static String _SERVER="http://192.168.1.6:5000/";
 
     private Retrofit rf;
 
@@ -35,7 +35,7 @@ public class UsuariosRepository {
 
     private void configurarRetrofit(){
         this.rf = new Retrofit.Builder()
-                .baseUrl("http://192.168.159.50:5001/")
+                .baseUrl(_SERVER)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Log.d("APP_2","INSTANCIA CREADA");
