@@ -1,4 +1,4 @@
-package dao;
+package com.example.appmovil.Dominio.dao;
 
 import android.os.Handler;
 import android.os.Message;
@@ -6,8 +6,8 @@ import android.util.Log;
 
 import java.util.List;
 
-import dao.rest.UsuariosRest;
-import models.Usuario;
+import com.example.appmovil.Dominio.dao.rest.UsuariosRest;
+import com.example.appmovil.Dominio.Usuario;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
