@@ -48,13 +48,14 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void actualizarUI(GoogleSignInAccount acct ){
-            signInButton.setVisibility(View.GONE);
-
-            Usuario usuario = new Usuario(acct.getId(),acct.getDisplayName(),acct.getGivenName(),acct.getFamilyName(),acct.getEmail());
-
-            UsuariosRepository.getInstance().setUser(usuario);
 
             if (acct != null) {
+                signInButton.setVisibility(View.GONE);
+
+                Usuario usuario = new Usuario(acct.getId(),acct.getDisplayName(),acct.getGivenName(),acct.getFamilyName(),acct.getEmail());
+
+                UsuariosRepository.getInstance().setUser(usuario);
+
                 Intent i= new Intent(getApplicationContext(),MenuActivity.class);
 
                 startActivity(i);

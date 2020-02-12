@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +15,11 @@ import android.widget.TextView;
 
 import com.example.appmovil.Dominio.dao.UsuariosRepository;
 import com.example.appmovil.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 
 public class MenuActivity extends AppCompatActivity {
@@ -23,11 +29,21 @@ public class MenuActivity extends AppCompatActivity {
     private Toolbar miToolbar;
 
     private String nombreUsuario;
+    GoogleSignInClient mGoogleSignInClient;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        //GOOGLE SIGN IN
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
         inicializarElementosGraficos();
         nombreUsuario= UsuariosRepository.getInstance().getUser().getName();
         tvNombre.setText("Bienvenido "+nombreUsuario);
@@ -63,6 +79,15 @@ public class MenuActivity extends AppCompatActivity {
                 return true;
 
             case R.id.mnuOpt2:
+                mGoogleSignInClient.signOut()
+                        .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Log.d("logout","deslogueo");
+
+                                finish();
+                            }
+                        });
                 return true;
 
 
