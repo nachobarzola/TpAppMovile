@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Presentacion.CrearEventoActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_guardarEvento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -29,7 +41,7 @@
         android:textSize="18dp"/>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/et_nombre_evento"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -46,11 +58,11 @@
         android:layout_marginTop="10dp"
         android:text="@string/crearEvento_textDescripcion"
         android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintStart_toStartOf="@+id/et_nombre_evento"
+        app:layout_constraintTop_toBottomOf="@+id/et_nombre_evento" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/et_descripcion_evento"
         android:layout_width="320dp"
         android:layout_height="80dp"
         android:layout_marginTop="8dp"
@@ -67,8 +79,8 @@
         android:layout_marginTop="10dp"
         android:text="@string/crearEvento_btnFecha"
         android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="@+id/editText4"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintStart_toStartOf="@+id/et_descripcion_evento"
+        app:layout_constraintTop_toBottomOf="@+id/et_descripcion_evento" />
 
     <TextView
         android:id="@+id/tvFecha"

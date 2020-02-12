@@ -25,10 +25,8 @@
     <string name="crearEvento_textHora">hh:mm</string>
     <string name="crearEvento_textDireccion">Dirección</string>
 
-
-
-
-
-
+    //Menu
+    <string name="menu_opcion1">Mis datos</string>
+    <string name="menu_opcion2">Cerrar sesión</string>
 
 </resources>

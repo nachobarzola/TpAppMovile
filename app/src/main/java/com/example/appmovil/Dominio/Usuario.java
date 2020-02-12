@@ -6,35 +6,54 @@ import com.google.gson.annotations.SerializedName;
 public class Usuario {
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private String id;
+
+    @SerializedName("name")
+    @Expose
+    private String name;
+
+    @SerializedName("givenName")
+    @Expose
+    private String givenName;
+
+    @SerializedName("familyName")
+    @Expose
+    private String familyName;
 
     @SerializedName("email")
     @Expose
     private String email;
 
-    @SerializedName("password")
-    @Expose
-    private String password;
-
-    @SerializedName("nombre")
-    @Expose
-    private String nombre;
-
-    @SerializedName("apellido")
-    @Expose
-    private String apellido;
-
-    public Usuario(String email,String password) {
-        this.email = email;
-        this.password = password;
-    }
-
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGivenName() {
+        return givenName;
+    }
+
+    public void setGivenName(String givenName) {
+        this.givenName = givenName;
+    }
+
+    public String getFamilyName() {
+        return familyName;
+    }
+
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
     }
 
     public String getEmail() {
@@ -45,27 +64,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public Usuario(String id, String name, String givenName, String familyName, String email) {
+        this.id = id;
+        this.name = name;
+        this.givenName = givenName;
+        this.familyName = familyName;
+        this.email = email;
     }
 }
