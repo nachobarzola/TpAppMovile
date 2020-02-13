@@ -13,6 +13,7 @@
     //Actividad Menu:
     <string name="menu_btnCrearEvento">Crear Evento</string>
     <string name="menu_btnListaEventos">Lista de eventos</string>
+    <string name="menu_btnListaInvitaciones">Mis invitaciones</string>
     <string name="menu_btnEscanerQR">Escaner QR</string>
 
     //Actividad crear evento
@@ -23,7 +24,7 @@
     <string name="crearEvento_textFecha">dd/mm/aaaa</string>
     <string name="crearEvento_btnHora">Hora</string>
     <string name="crearEvento_textHora">hh:mm</string>
-    <string name="crearEvento_textDireccion">Ubicacion</string>
+    <string name="crearEvento_textDireccion">Ubicacion: </string>
 
     //Menu
     <string name="menu_opcion1">Mis datos</string>

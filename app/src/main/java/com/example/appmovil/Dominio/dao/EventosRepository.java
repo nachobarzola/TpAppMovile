@@ -20,7 +20,11 @@ public class EventosRepository {
 
     private List<Evento> listaEventos;
 
+    //INTERNET
     public static String _SERVER="http://192.157.192.222/api/";
+
+    //LOCAL
+    //public static String _SERVER="http://192.168.0.23:58500/api/";
 
     private Retrofit rf;
 

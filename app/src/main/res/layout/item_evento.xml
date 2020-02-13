@@ -18,10 +18,39 @@
             android:layout_gravity="center"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="right">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btn_evento_invitar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorFondoPrincipal"
+                    android:clickable="true"
+                    android:color="@color/colorFondoPrincipal"
+                    card_view:borderWidth="0dp"
+                    card_view:maxImageSize="@android:dimen/app_icon_size"
+                    card_view:srcCompat="@drawable/ic_action_name" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btn_evento_ver_invitados"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/colorFondoPrincipal"
+                    android:clickable="true"
+                    android:color="@color/colorFondoPrincipal"
+                    card_view:borderWidth="0dp"
+                    card_view:maxImageSize="@android:dimen/app_icon_size"
+                    card_view:srcCompat="@drawable/icon_contact" />
+            </LinearLayout>
+
             <ImageView
                 android:id="@+id/evento_img"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="1dp"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView

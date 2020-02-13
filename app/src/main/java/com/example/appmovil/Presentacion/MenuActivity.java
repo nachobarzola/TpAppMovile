@@ -25,6 +25,8 @@ import com.google.android.gms.tasks.Task;
 public class MenuActivity extends AppCompatActivity {
     private Button btn_crearEvento;
     private Button btn_listaEventos;
+    private Button btn_mis_invitaciones;
+
     private TextView tvNombre;
     private Toolbar miToolbar;
 
@@ -63,6 +65,14 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(iListaEventos);
             }
         });
+
+        btn_mis_invitaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent imisInvitaciones=new Intent(v.getContext(),MisInvitacionesActivity.class);
+                startActivity(imisInvitaciones);
+            }
+        });
     }
 
     @Override
@@ -98,6 +108,8 @@ public class MenuActivity extends AppCompatActivity {
     private void inicializarElementosGraficos(){
         btn_crearEvento=findViewById(R.id.btn_crearEvento);
         btn_listaEventos=findViewById(R.id.btn_listaEventos);
+        btn_mis_invitaciones=findViewById(R.id.btn_mis_invitaciones);
+
         tvNombre=findViewById(R.id.tvNombre);
 
         miToolbar=findViewById(R.id.toolbarHome);

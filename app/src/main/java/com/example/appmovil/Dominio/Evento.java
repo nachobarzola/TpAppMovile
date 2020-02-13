@@ -7,7 +7,7 @@ public class Evento {
 
     @SerializedName("id")
     @Expose
-    private String id;
+    private int id;
 
     @SerializedName("nombre")
     @Expose
@@ -33,11 +33,19 @@ public class Evento {
     @Expose
     private String usuario_id;
 
-    public String getId() {
+    @SerializedName("latitud")
+    @Expose
+    private double latitud;
+
+    @SerializedName("longitud")
+    @Expose
+    private double longitud;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -81,12 +89,39 @@ public class Evento {
         this.usuario_id = usuario_id;
     }
 
-    public Evento(String nombre, String descripcion, String fecha, String hora, String ubicacion, String usuario_id) {
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
+
+    public double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
+    }
+
+    public Evento(int id, String nombre, String descripcion, String fecha, String hora, String ubicacion, String usuario_id, double latitud, double longitud) {
+        this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.hora = hora;
         this.ubicacion = ubicacion;
         this.usuario_id = usuario_id;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 }

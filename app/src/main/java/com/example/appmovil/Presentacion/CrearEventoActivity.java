@@ -28,6 +28,7 @@ import com.example.appmovil.Dominio.Evento;
 import com.example.appmovil.Dominio.dao.EventosRepository;
 import com.example.appmovil.Dominio.dao.UsuariosRepository;
 import com.example.appmovil.R;
+import com.example.appmovil.Services.LocalizarDireccion;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -36,10 +37,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class CrearEventoActivity extends  FragmentActivity implements View.OnClickListener, OnMapReadyCallback {
 
-    private TextView tvFecha,tvHora;
+    private TextView tvFecha,tvHora,tvUbicacion;
     private Button btnFecha,btnHora,btnUbicacion;
     private FloatingActionButton btnGuardar;
     private  EditText et_nombre,et_descripcion;
@@ -47,7 +49,8 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
     private MarkerOptions marcador;
 
     private String usuario_id;
-
+    private double latitud,longitud;
+    private String Direcciones;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -151,7 +154,7 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
             String hora =tvHora.getText().toString();
             String ubicacion =" test";
 
-            Evento evento=new Evento(nombre,descripcion,fecha,hora,ubicacion,usuario_id);
+            Evento evento=new Evento(0,nombre,descripcion,fecha,hora,Direcciones,usuario_id,latitud,longitud);
 
             EventosRepository.getInstance().Guardar(evento,miHandler);
         }
@@ -163,6 +166,7 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
         btnFecha=findViewById(R.id.btnFecha);
         btnHora=findViewById(R.id.btnHora);
         tvHora=findViewById(R.id.tvHora);
+        tvUbicacion=findViewById(R.id.tvUbicacion);
         btnGuardar=findViewById(R.id.btn_guardarEvento);
 
         et_nombre=findViewById(R.id.et_nombre_evento);
@@ -192,12 +196,16 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
             @Override
             public void onMapClick(LatLng point) {
                 // TODO Auto-generated method stub
-                double lat = point.latitude;
-                double lng = point.longitude;
+                latitud = point.latitude;
+                longitud = point.longitude;
+
+                Direcciones = LocalizarDireccion.getInstance().getAddress(latitud,longitud,getApplicationContext());
+
+                //tvUbicacion.setText(Direcciones);
 
                 marcador=new MarkerOptions()
-                        .position(new LatLng(lat, lng))
-                        .title("Lugar del evento");
+                        .position(new LatLng(latitud, longitud))
+                        .title(Direcciones);
 
                 mMap.clear();
 
