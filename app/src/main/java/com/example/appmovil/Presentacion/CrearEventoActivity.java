@@ -1,11 +1,15 @@
 package com.example.appmovil.Presentacion;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -24,16 +28,23 @@ import com.example.appmovil.Dominio.Evento;
 import com.example.appmovil.Dominio.dao.EventosRepository;
 import com.example.appmovil.Dominio.dao.UsuariosRepository;
 import com.example.appmovil.R;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
 
-public class CrearEventoActivity extends AppCompatActivity implements View.OnClickListener {
+public class CrearEventoActivity extends  FragmentActivity implements View.OnClickListener, OnMapReadyCallback {
 
     private TextView tvFecha,tvHora;
-    private Button btnFecha,btnHora;
+    private Button btnFecha,btnHora,btnUbicacion;
     private FloatingActionButton btnGuardar;
     private  EditText et_nombre,et_descripcion;
+    private GoogleMap mMap;
+    private MarkerOptions marcador;
 
     private String usuario_id;
 
@@ -48,24 +59,12 @@ public class CrearEventoActivity extends AppCompatActivity implements View.OnCli
         //Le asigno al boton una accion definida en esta misma actividad:
         btnFecha.setOnClickListener(this);
         btnHora.setOnClickListener(this);
+        btnGuardar.setOnClickListener(this);
 
-
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String nombre=et_nombre.getText().toString();
-                String descripcion=et_descripcion.getText().toString();
-                String fecha=tvFecha.getText().toString();
-                String hora =tvHora.getText().toString();
-                String ubicacion =" test";
-
-                Evento evento=new Evento(nombre,descripcion,fecha,hora,ubicacion,usuario_id);
-
-                EventosRepository.getInstance().Guardar(evento,miHandler);
-
-            }
-        });
-
+        //MAPA
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
     }
 
@@ -145,6 +144,18 @@ public class CrearEventoActivity extends AppCompatActivity implements View.OnCli
 
         }
         //-----------------------
+        if(v==btnGuardar){
+            String nombre=et_nombre.getText().toString();
+            String descripcion=et_descripcion.getText().toString();
+            String fecha=tvFecha.getText().toString();
+            String hora =tvHora.getText().toString();
+            String ubicacion =" test";
+
+            Evento evento=new Evento(nombre,descripcion,fecha,hora,ubicacion,usuario_id);
+
+            EventosRepository.getInstance().Guardar(evento,miHandler);
+        }
+        //-----------------------
 
     }
     private void inicializarElementosGraficos(){
@@ -157,5 +168,41 @@ public class CrearEventoActivity extends AppCompatActivity implements View.OnCli
         et_nombre=findViewById(R.id.et_nombre_evento);
         et_descripcion=findViewById(R.id.et_descripcion_evento);
 
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    9999);
+            return;
+        }
+
+        mMap.setMyLocationEnabled(true);
+
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+
+            @Override
+            public void onMapClick(LatLng point) {
+                // TODO Auto-generated method stub
+                double lat = point.latitude;
+                double lng = point.longitude;
+
+                marcador=new MarkerOptions()
+                        .position(new LatLng(lat, lng))
+                        .title("Lugar del evento");
+
+                mMap.clear();
+
+                mMap.addMarker(marcador);
+            }
+        });
     }
 }

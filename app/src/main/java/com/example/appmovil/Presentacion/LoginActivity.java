@@ -162,6 +162,8 @@ public class LoginActivity extends AppCompatActivity {
 
             UsuariosRepository.getInstance().Guardar(usuario,miHandler);
 
+            UsuariosRepository.getInstance().setUser(usuario);
+
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.

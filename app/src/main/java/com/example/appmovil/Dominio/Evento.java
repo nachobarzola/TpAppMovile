@@ -29,7 +29,7 @@ public class Evento {
     @Expose
     private String ubicacion;
 
-    @SerializedName("usuario_id")
+    @SerializedName("usuarioId")
     @Expose
     private String usuario_id;
 

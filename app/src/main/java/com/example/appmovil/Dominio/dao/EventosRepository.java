@@ -20,7 +20,7 @@ public class EventosRepository {
 
     private List<Evento> listaEventos;
 
-    public static String _SERVER="http://192.168.0.23:5000/";
+    public static String _SERVER="http://192.157.192.222/api/";
 
     private Retrofit rf;
 
@@ -72,12 +72,12 @@ public class EventosRepository {
     }
 
     public void Guardar(final Evento evento, final Handler h){
-        Call<Evento> llamada = this._eventosRest.Guardar(evento);
-        llamada.enqueue(new Callback<Evento>() {
+        Call<Void> llamada = this._eventosRest.Guardar(evento);
+        llamada.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Evento> call, Response<Evento> response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
                 if(response.isSuccessful()){
-                    listaEventos.add(response.body());
+                    listaEventos.add(evento);
                     Message m=new Message();
                     m.arg1=0;
                     h.sendMessage(m);
@@ -85,7 +85,7 @@ public class EventosRepository {
             }
 
             @Override
-            public void onFailure(Call<Evento> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 Message m=new Message();
                 m.arg1=1;
                 h.sendMessage(m);

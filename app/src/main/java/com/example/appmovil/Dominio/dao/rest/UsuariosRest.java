@@ -15,8 +15,7 @@ public interface UsuariosRest {
     @GET("usuarios")
     Call<List<Usuario>> Obtener(@Query("email") String email);
 
-    @Headers({"Accept: application/json"})
     @POST("usuarios")
-    Call<Usuario> Guardar(@Body Usuario usuario);
+    Call<Void> Guardar(@Body Usuario usuario);
 
 }

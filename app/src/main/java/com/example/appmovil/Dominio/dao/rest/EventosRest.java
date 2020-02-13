@@ -8,12 +8,13 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface EventosRest {
-    @GET("eventos")
-    Call<List<Evento>> Obtener(@Query("usuario_id") String usuario_id);
+    @GET("eventos/{usuario_id}")
+    Call<List<Evento>> Obtener(@Path(value = "usuario_id", encoded = true) String usuario_id);
 
     @POST("eventos")
-    Call<Evento> Guardar(@Body Evento evento);
+    Call<Void> Guardar(@Body Evento evento);
 }

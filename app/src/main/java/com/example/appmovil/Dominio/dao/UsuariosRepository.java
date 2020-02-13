@@ -15,7 +15,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UsuariosRepository {
-    public static String _SERVER="http://192.168.0.23:5000/";
+    public static String _SERVER="http://192.157.192.222/api/";
 
     private Retrofit rf;
 
@@ -77,18 +77,18 @@ public class UsuariosRepository {
     }
 
     public void Guardar(final Usuario usuario,final Handler h){
-        Call<Usuario> llamada = this.usuariosRest.Guardar(usuario);
+        Call<Void> llamada = this.usuariosRest.Guardar(usuario);
 
-        llamada.enqueue(new Callback<Usuario>() {
+        llamada.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
                 Message m=new Message();
                 m.arg1=2;
                 h.sendMessage(m);
             }
 
             @Override
-            public void onFailure(Call<Usuario> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 Message m=new Message();
                 m.arg1=1;
                 h.sendMessage(m);
