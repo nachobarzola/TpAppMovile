@@ -17,7 +17,7 @@
     <string name="menu_btnEscanerQR">Escaner QR</string>
 
     //Actividad crear evento
-    <string name="CrearEvento_textTitulo">Registro de nuevo evento</string>
+    <string name="crearEvento_tileToolbar">Registro de nuevo evento</string>
     <string name="crearEvento_textNombre">Nombre</string>
     <string name="crearEvento_textDescripcion">Descripción</string>
     <string name="crearEvento_btnFecha">Fecha</string>

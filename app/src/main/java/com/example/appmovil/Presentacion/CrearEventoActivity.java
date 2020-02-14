@@ -10,6 +10,9 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -20,6 +23,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -29,6 +34,8 @@ import com.example.appmovil.Dominio.dao.EventosRepository;
 import com.example.appmovil.Dominio.dao.UsuariosRepository;
 import com.example.appmovil.R;
 import com.example.appmovil.Services.LocalizarDireccion;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -36,17 +43,19 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 
 public class CrearEventoActivity extends  FragmentActivity implements View.OnClickListener, OnMapReadyCallback {
 
     private TextView tvFecha,tvHora,tvUbicacion;
-    private Button btnFecha,btnHora,btnUbicacion;
+    private Button btnFecha,btnHora;
     private FloatingActionButton btnGuardar;
     private  EditText et_nombre,et_descripcion;
     private GoogleMap mMap;
     private MarkerOptions marcador;
+
 
     private String usuario_id;
     private double latitud,longitud;
@@ -68,6 +77,8 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
 
     }
 
@@ -169,6 +180,8 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
         tvUbicacion=findViewById(R.id.tvUbicacion);
         btnGuardar=findViewById(R.id.btn_guardarEvento);
 
+
+
         et_nombre=findViewById(R.id.et_nombre_evento);
         et_descripcion=findViewById(R.id.et_descripcion_evento);
 
@@ -177,6 +190,7 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
 
         // Add a marker in Sydney and move the camera
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -188,9 +202,11 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
                     9999);
             return;
         }
+        //se posiciona la camara del mapa en el medio de argentina
+        LatLng ubicacionInicial= new LatLng(-32.87375 ,-63.466432);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacionInicial,4));
 
         mMap.setMyLocationEnabled(true);
-
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
             @Override
