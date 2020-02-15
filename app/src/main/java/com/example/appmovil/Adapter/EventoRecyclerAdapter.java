@@ -50,11 +50,9 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
 
         final Evento evento = listaEventos.get(position);
 
-        holder.tvDescripcion.setText(evento.getDescripcion());
+        holder.tvNombre.setText(evento.getNombre());
 
-        holder.tvFecha.setText(evento.getFecha());
-
-        holder.tvHora.setText(evento.getHora());
+        holder.tvFechaHora.setText(evento.getFecha() + " " + evento.getHora());
 
         holder.tvUbicacion.setText(evento.getUbicacion());
 

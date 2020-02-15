@@ -26,6 +26,7 @@ public class MenuActivity extends AppCompatActivity {
     private Button btn_crearEvento;
     private Button btn_listaEventos;
     private Button btn_mis_invitaciones;
+    private Button btn_escanear_qr;
 
     private TextView tvNombre;
     private Toolbar miToolbar;
@@ -73,6 +74,14 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(imisInvitaciones);
             }
         });
+
+        btn_escanear_qr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iQr=new Intent(v.getContext(),EscanearQrActivity.class);
+                startActivity(iQr);
+            }
+        });
     }
 
     @Override
@@ -109,6 +118,7 @@ public class MenuActivity extends AppCompatActivity {
         btn_crearEvento=findViewById(R.id.btn_crearEvento);
         btn_listaEventos=findViewById(R.id.btn_listaEventos);
         btn_mis_invitaciones=findViewById(R.id.btn_mis_invitaciones);
+        btn_escanear_qr=findViewById(R.id.btn_escanerQR);
 
         tvNombre=findViewById(R.id.tvNombre);
 

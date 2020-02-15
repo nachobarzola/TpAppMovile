@@ -101,6 +101,26 @@ public class InvitacionesRepository {
         });
     }
 
+    public void RegistrarIngreso(String usuarioId, int invitacionId, final Handler h){
+        Call<Void> llamada = this._invitacionesRest.RegistrarIngreso(usuarioId,invitacionId);
+        llamada.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    Message m = new Message();
+                    m.arg1 = 0;
+                    h.sendMessage(m);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Message m = new Message();
+                m.arg1 = 1;
+                h.sendMessage(m);
+            }
+        });
+    }
     public List<Invitacion> getListaInvitaciones() {
         return listaInvitaciones;
     }

@@ -3,49 +3,74 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:cv_invitacion="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
+    <androidx.cardview.widget.CardView android:id="@+id/cv_invitacion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        cv_invitacion:cardPreventCornerOverlap="true"
+        cv_invitacion:cardUseCompatPadding="true"
+        cv_invitacion:cardCornerRadius="10dp"
+        cv_invitacion:cardBackgroundColor="@color/colorFondoCard">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/invitacion_ubicacion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ubicacion"
-                app:layout_constraintEnd_toStartOf="@+id/invitacion_qr"
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="8dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorBarraLateral"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/invitacion_nombre_evento"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:inputType="textMultiLine"
+                android:text="Ubicacion"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toStartOf="@+id/invitacion_qr"
+                app:layout_constraintStart_toEndOf="@+id/frameLayout2"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/invitacion_fecha_hora"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Fecha y hora"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/invitacion_estado"
                 app:layout_constraintEnd_toStartOf="@+id/invitacion_qr"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/invitacion_ubicacion" />
+                app:layout_constraintStart_toEndOf="@+id/frameLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/invitacion_nombre_evento" />
 
             <TextView
                 android:id="@+id/invitacion_estado"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Estado"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/invitacion_qr"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/frameLayout2" />
+
 
             <ImageView
                 android:id="@+id/invitacion_qr"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />

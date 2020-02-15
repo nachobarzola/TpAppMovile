@@ -17,4 +17,8 @@ public interface InvitacionesRest {
 
     @POST("invitaciones")
     Call<Void> Guardar(@Body Invitacion invitacion);
+
+    @POST("invitaciones/{usuarioId}/{invitacionId}")
+    Call<Void> RegistrarIngreso(@Path(value = "usuarioId", encoded = true)String usuarioId,@Path(value = "invitacionId", encoded = true)int invitacionId);
+
 }

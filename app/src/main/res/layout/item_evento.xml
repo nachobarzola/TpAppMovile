@@ -6,78 +6,78 @@
 
     <androidx.cardview.widget.CardView android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         card_view:cardPreventCornerOverlap="true"
         card_view:cardUseCompatPadding="true"
-        card_view:cardCornerRadius="50dp">
+        card_view:cardCornerRadius="10dp"
+        card_view:cardBackgroundColor="@color/colorFondoCard"
+        >
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="11dp">
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="right">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/btn_evento_invitar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorFondoPrincipal"
-                    android:clickable="true"
-                    android:color="@color/colorFondoPrincipal"
-                    card_view:borderWidth="0dp"
-                    card_view:maxImageSize="@android:dimen/app_icon_size"
-                    card_view:srcCompat="@drawable/ic_action_name" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/btn_evento_ver_invitados"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:backgroundTint="@color/colorFondoPrincipal"
-                    android:clickable="true"
-                    android:color="@color/colorFondoPrincipal"
-                    card_view:borderWidth="0dp"
-                    card_view:maxImageSize="@android:dimen/app_icon_size"
-                    card_view:srcCompat="@drawable/icon_contact" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/evento_img"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_evento_invitar"
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/colorFondoCard"
+                android:clickable="true"
+                android:src="@drawable/add_icon_contact"
+                card_view:borderWidth="0dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:maxImageSize="50dp"
+                tools:layout_conversion_absoluteHeight="30dp"
+                tools:layout_conversion_absoluteWidth="30dp" />
+
 
             <TextView
-                android:id="@+id/evento_descripcion"
-                android:layout_width="match_parent"
+                android:id="@+id/evento_nombre"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center" />
+                android:layout_marginTop="8dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/btn_evento_invitar"
+                card_view:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/evento_fecha"
-                android:layout_width="match_parent"
+                android:id="@+id/evento_fecha_hora"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/evento_hora"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center" />
+                card_view:layout_constraintBottom_toTopOf="@+id/evento_ubicacion"
+                card_view:layout_constraintEnd_toStartOf="@+id/frameLayout"
+                card_view:layout_constraintStart_toEndOf="@+id/btn_evento_invitar"
+                card_view:layout_constraintTop_toBottomOf="@+id/evento_nombre" />
 
             <TextView
                 android:id="@+id/evento_ubicacion"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center" />
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:inputType="textMultiLine"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toStartOf="@+id/frameLayout"
+                card_view:layout_constraintStart_toEndOf="@+id/btn_evento_invitar" />
 
-        </LinearLayout>
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="8dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorBarraLateral"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
