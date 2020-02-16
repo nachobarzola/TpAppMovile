@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -32,6 +34,9 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
 
     private List<Evento> listaEventos;
     private View vista;
+    //Atributo usado como contador para saber que color poner en la barra lateral
+    private Integer contadorColorBarraLateral=0;
+    //-----
     public EventoRecyclerAdapter(List<Evento> eventos){
         this.listaEventos=eventos;
     }
@@ -41,7 +46,6 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
     public EventoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         vista= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_evento,parent,false);
-
         return new EventoViewHolder(vista);
     }
 
@@ -55,6 +59,9 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
         holder.tvFechaHora.setText(evento.getFecha() + " " + evento.getHora());
 
         holder.tvUbicacion.setText(evento.getUbicacion());
+
+        holder.barraLateral.setBackgroundColor(seleccionarColorBarraLateral());
+
 
 
         //---------------BOTONES:
@@ -117,4 +124,31 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
             }
         }
     };
+    /*Este metodo permite alterar colores en la barra latel del cardView
+    *
+    * */
+    private int seleccionarColorBarraLateral(){
+        switch (contadorColorBarraLateral){
+            case 0:
+                //Color violeta
+                contadorColorBarraLateral++;
+                return Color.rgb(186,104,200);
+            case 1:
+                //Color rojo
+                contadorColorBarraLateral++;
+                return Color.rgb(165,23,33);
+            case 2:
+                //Color amarillo
+                contadorColorBarraLateral++;
+                return Color.rgb(216,225,43);
+            case 3:
+                //Color celeste
+                contadorColorBarraLateral++;
+                return Color.rgb(43,191,192);
+            default:
+                //Color verde
+                contadorColorBarraLateral=0;
+                return Color.rgb(43,225,112);
+        }
+    }
 }

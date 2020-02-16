@@ -9,7 +9,12 @@
     <color name="colorFondoLista">#EAEAEA</color>
     <color name="colorFondoCard">#F9F8F8</color>
 
+
     <color name="colorBarraLateral">#BA68C8</color>
+    <color name="colorBarraLateral2">#D8E12B</color>
+    <color name="colorBarraLateral3">#2BBFBF</color>
+    <color name="colorBarraLateral4">#2BE170</color>
+
 
 
 </resources>

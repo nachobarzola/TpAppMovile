@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 card_view:layout_constraintBottom_toTopOf="@+id/evento_ubicacion"
-                card_view:layout_constraintEnd_toStartOf="@+id/frameLayout"
+                card_view:layout_constraintEnd_toStartOf="@+id/barraLateral"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@+id/evento_nombre" />
 
@@ -80,11 +80,11 @@
                 android:inputType="textMultiLine"
                 android:textSize="15dp"
                 card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintEnd_toStartOf="@+id/frameLayout"
+                card_view:layout_constraintEnd_toStartOf="@+id/barraLateral"
                 card_view:layout_constraintStart_toEndOf="@+id/btn_evento_invitar" />
 
             <FrameLayout
-                android:id="@+id/frameLayout"
+                android:id="@+id/barraLateral"
                 android:layout_width="8dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorBarraLateral"
