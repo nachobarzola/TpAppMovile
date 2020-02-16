@@ -4,15 +4,15 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.cardview.widget.CardView android:id="@+id/card_view"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        card_view:cardPreventCornerOverlap="true"
-        card_view:cardUseCompatPadding="true"
-        card_view:cardCornerRadius="10dp"
         card_view:cardBackgroundColor="@color/colorFondoCard"
-        >
+        card_view:cardCornerRadius="10dp"
+        card_view:cardPreventCornerOverlap="true"
+        card_view:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -20,34 +20,46 @@
             android:layout_gravity="center"
             android:orientation="vertical"
             tools:layout_editor_absoluteX="10dp"
-            tools:layout_editor_absoluteY="11dp">
+            tools:layout_editor_absoluteY="11dp"
+            >
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btn_evento_invitar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="54dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
                 android:backgroundTint="@color/colorFondoCard"
                 android:clickable="true"
                 android:src="@drawable/add_icon_contact"
                 card_view:borderWidth="0dp"
-                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent"
                 card_view:maxImageSize="50dp"
                 tools:layout_conversion_absoluteHeight="30dp"
                 tools:layout_conversion_absoluteWidth="30dp" />
 
-
             <TextView
                 android:id="@+id/evento_nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintStart_toEndOf="@+id/btn_evento_invitar"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="320dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorFondoLista"
+                android:orientation="vertical"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/evento_nombre"></LinearLayout>
 
             <TextView
                 android:id="@+id/evento_fecha_hora"
@@ -55,7 +67,7 @@
                 android:layout_height="wrap_content"
                 card_view:layout_constraintBottom_toTopOf="@+id/evento_ubicacion"
                 card_view:layout_constraintEnd_toStartOf="@+id/frameLayout"
-                card_view:layout_constraintStart_toEndOf="@+id/btn_evento_invitar"
+                card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@+id/evento_nombre" />
 
             <TextView
@@ -63,8 +75,10 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="5dp"
                 android:gravity="center"
                 android:inputType="textMultiLine"
+                android:textSize="15dp"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintEnd_toStartOf="@+id/frameLayout"
                 card_view:layout_constraintStart_toEndOf="@+id/btn_evento_invitar" />

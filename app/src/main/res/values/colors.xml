@@ -4,7 +4,11 @@
     <color name="colorPrimary">#2874A6</color>
     <color name="colorPrimaryDark">#252525</color>
     <color name="colorAccent">#053D7C</color>
-    <color name="colorFondoCard">#E0F7FA</color>
+
+
+    <color name="colorFondoLista">#EAEAEA</color>
+    <color name="colorFondoCard">#F9F8F8</color>
+
     <color name="colorBarraLateral">#BA68C8</color>
 
 
