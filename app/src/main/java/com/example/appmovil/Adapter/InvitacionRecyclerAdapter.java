@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.text.InputType;
 import android.util.Base64;
 import android.util.Log;
@@ -27,6 +28,8 @@ public class InvitacionRecyclerAdapter extends RecyclerView.Adapter<InvitacionVi
 
     private List<Invitacion> invitaciones;
     private View vista;
+    //Atributo usado como contador para saber que color poner en la barra lateral
+    private Integer contadorColorBarraLateral=0;
 
     public InvitacionRecyclerAdapter(List<Invitacion> Invitaciones){this.invitaciones=Invitaciones;}
 
@@ -48,6 +51,8 @@ public class InvitacionRecyclerAdapter extends RecyclerView.Adapter<InvitacionVi
         //DECODIFICO LA IMAGEN
         byte[] decodedString = Base64.decode(invitacion.getQr(), Base64.DEFAULT);
         final Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+
+        holder.barraLateralInvitacion.setBackgroundColor(seleccionarColorBarraLateral());
 
         holder.ivQr.setImageBitmap(decodedByte);
 
@@ -74,5 +79,32 @@ public class InvitacionRecyclerAdapter extends RecyclerView.Adapter<InvitacionVi
     @Override
     public int getItemCount() {
         return invitaciones.size();
+    }
+    /*Este metodo permite alterar colores en la barra latel del cardView
+     *
+     * */
+    private int seleccionarColorBarraLateral(){
+        switch (contadorColorBarraLateral){
+            case 0:
+                //Color violeta
+                contadorColorBarraLateral++;
+                return Color.rgb(186,104,200);
+            case 1:
+                //Color rojo
+                contadorColorBarraLateral++;
+                return Color.rgb(165,23,33);
+            case 2:
+                //Color amarillo
+                contadorColorBarraLateral++;
+                return Color.rgb(216,225,43);
+            case 3:
+                //Color celeste
+                contadorColorBarraLateral++;
+                return Color.rgb(43,191,192);
+            default:
+                //Color verde
+                contadorColorBarraLateral=0;
+                return Color.rgb(43,225,112);
+        }
     }
 }

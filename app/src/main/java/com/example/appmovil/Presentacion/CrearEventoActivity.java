@@ -62,7 +62,7 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
 
     private String usuario_id;
     private double latitud,longitud;
-    private String Direcciones;
+    private String direccion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -178,11 +178,13 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
             String descripcion=et_descripcion.getText().toString();
             String fecha=tvFecha.getText().toString();
             String hora =tvHora.getText().toString();
-            String ubicacion =" test";
-
-            Evento evento=new Evento(0,nombre,descripcion,fecha,hora,Direcciones,usuario_id,latitud,longitud);
-
-            EventosRepository.getInstance().Guardar(evento,miHandler);
+            if(nombre.equals("")){
+                Toast.makeText(v.getContext(),"El nombre es obligatorio",Toast.LENGTH_LONG).show();
+            }else {
+                //El id del evento lo genera el servidor
+                Evento evento = new Evento(0, nombre, descripcion, fecha, hora, direccion, usuario_id, latitud, longitud);
+                EventosRepository.getInstance().Guardar(evento, miHandler);
+            }
         }
         //-----------------------
 
@@ -230,13 +232,13 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
                 latitud = point.latitude;
                 longitud = point.longitude;
 
-                Direcciones = LocalizarDireccion.getInstance().getAddress(latitud,longitud,getApplicationContext());
+                direccion = LocalizarDireccion.getInstance().getAddress(latitud,longitud,getApplicationContext());
 
-                //tvUbicacion.setText(Direcciones);
+                tvUbicacion.setText(direccion);
 
                 marcador=new MarkerOptions()
                         .position(new LatLng(latitud, longitud))
-                        .title(Direcciones);
+                        .title(direccion);
 
                 mMap.clear();
 
