@@ -10,9 +10,13 @@ import com.example.appmovil.Dominio.dao.rest.InvitacionesRest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -49,10 +53,33 @@ public class InvitacionesRepository {
         Gson gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
                 .create();
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public okhttp3.Response intercept(Chain chain) throws IOException {
+                        Request request = chain.request();
+                        okhttp3.Response response = chain.proceed(request);
+
+                        // todo deal with the issues the way you need to
+                        if (response.code() != 200) {
+                            //Log.d("Error",response.body().string());
+
+                            return response;
+                        }
+
+                        return response;
+                    }
+                })
+                .build();
+
         this.rf = new Retrofit.Builder()
                 .baseUrl(_SERVER)
+                .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
+
+
 
         this._invitacionesRest = this.rf.create(InvitacionesRest.class);
     }
@@ -116,7 +143,7 @@ public class InvitacionesRepository {
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Message m = new Message();
-                m.arg1 = 1;
+                m.obj=
                 h.sendMessage(m);
             }
         });

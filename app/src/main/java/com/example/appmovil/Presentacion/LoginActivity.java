@@ -2,6 +2,7 @@ package com.example.appmovil.Presentacion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appmovil.Services.MyBroadcastReceiver;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -74,6 +75,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         inicializarElementosGraficos();
+
+            MyBroadcastReceiver.createNotificationChannel(this);
 
         GoogleSignInOptions gso =
                 new GoogleSignInOptions

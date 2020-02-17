@@ -5,8 +5,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -20,6 +22,7 @@ import com.example.appmovil.Dominio.Usuario;
 import com.example.appmovil.Dominio.dao.EventosRepository;
 import com.example.appmovil.Dominio.dao.UsuariosRepository;
 import com.example.appmovil.R;
+import com.example.appmovil.Services.MyBroadcastReceiver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +49,14 @@ public class ListaEventos extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        //NOTIFICACIONES
+        BroadcastReceiver br = new MyBroadcastReceiver();
+        IntentFilter filtro = new IntentFilter();
+        filtro.addAction(MyBroadcastReceiver.EVENTO_02);
+        getApplication().getApplicationContext()
+                .registerReceiver(br,filtro);
+
+        //NOTIFICACIONES
         Usuario usuario = UsuariosRepository.getInstance().getUser();
 
         EventosRepository.getInstance().ObtenerEventos(usuario,miHandler);

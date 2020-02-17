@@ -28,6 +28,7 @@ import com.example.appmovil.Dominio.Invitacion;
 import com.example.appmovil.Dominio.dao.InvitacionesRepository;
 import com.example.appmovil.Presentacion.ListaEventos;
 import com.example.appmovil.R;
+import com.example.appmovil.Services.MyBroadcastReceiver;
 import com.example.appmovil.ViewHolder.EventoViewHolder;
 
 import java.util.Date;
@@ -48,6 +49,8 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
     //Atributo usado como contador para saber que color poner en la barra lateral
     private Integer contadorColorBarraLateral=0;
     //-----
+
+    private Context contexto;
     //Logica de correo
     private Session session;
     private String _CORREOAPP="controlEventosQR@gmail.com";
@@ -70,6 +73,8 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
     public void onBindViewHolder(@NonNull EventoViewHolder holder, int position) {
 
         final Evento evento = listaEventos.get(position);
+
+        contexto=holder.tvNombre.getContext();
 
         holder.tvNombre.setText(evento.getNombre());
 
@@ -133,7 +138,11 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
 
             switch (msg.arg1 ){
                 case 0:
-                   Log.d("recycler","Invitacion enviada");
+                    Intent i = new Intent();
+                    i.putExtra("data1","Invitación guardada");
+                    i.putExtra("data2","Se creó la nueva invitación al evento");
+                    i.setAction(MyBroadcastReceiver.EVENTO_02);
+                    contexto.sendBroadcast(i);
                     break;
                 case 1:
                     Log.d("recycler","Invitacion erronea");

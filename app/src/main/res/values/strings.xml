@@ -31,4 +31,8 @@
     <string name="menu_opcion2">Cerrar sesión</string>
     <string name="title_activity_maps">Map</string>
 
+    //NOTIFICACIONES
+    <string name="CHANNEL_NAME">GENERAL</string>
+    <string name="CHANNEL_DESCRIPTION">Notificacines generales</string>
+
 </resources>

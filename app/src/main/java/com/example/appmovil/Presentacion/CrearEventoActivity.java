@@ -7,8 +7,10 @@ import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -34,6 +36,7 @@ import com.example.appmovil.Dominio.dao.EventosRepository;
 import com.example.appmovil.Dominio.dao.UsuariosRepository;
 import com.example.appmovil.R;
 import com.example.appmovil.Services.LocalizarDireccion;
+import com.example.appmovil.Services.MyBroadcastReceiver;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -66,6 +69,15 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
         setContentView(R.layout.activity_crear_evento);
         inicializarElementosGraficos();
 
+        //NOTIFICACIONES
+        BroadcastReceiver br = new MyBroadcastReceiver();
+        IntentFilter filtro = new IntentFilter();
+        filtro.addAction(MyBroadcastReceiver.EVENTO_01);
+        getApplication().getApplicationContext()
+                .registerReceiver(br,filtro);
+
+        //NOTIFICACIONES
+
         usuario_id= UsuariosRepository.getInstance().getUser().getId();
 
         //Le asigno al boton una accion definida en esta misma actividad:
@@ -94,9 +106,12 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
             Toast toast;
             switch (msg.arg1 ){
                 case 0:
-                    text = "Guardado ok";
-                    toast = Toast.makeText(context, text, duration);
-                    toast.show();
+                    Intent i = new Intent();
+                    i.putExtra("data1","Evento guardado");
+                    i.putExtra("data2","Se creó el nuevo evento");
+                    i.setAction(MyBroadcastReceiver.EVENTO_01);
+                    sendBroadcast(i);
+
                     finish();
 
                     break;
