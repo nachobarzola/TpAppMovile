@@ -35,4 +35,7 @@
     <string name="CHANNEL_NAME">GENERAL</string>
     <string name="CHANNEL_DESCRIPTION">Notificacines generales</string>
 
+    //Actividad detalle evento
+    <string name="detalleEvento_tvEvento">Nombre</string>
+    <string name="detalleEvento_tvDescripcion">Descripción</string>
 </resources>

@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appmovil.R;
@@ -20,6 +21,7 @@ public class EventoViewHolder extends RecyclerView.ViewHolder{
     public TextView tvUbicacion;
     public FloatingActionButton btnInvitar;
     public FrameLayout barraLateral;
+    public CardView cardViewEventos;
 
     public EventoViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -30,7 +32,7 @@ public class EventoViewHolder extends RecyclerView.ViewHolder{
         this.tvUbicacion=itemView.findViewById(R.id.evento_ubicacion);
         this.btnInvitar =itemView.findViewById(R.id.btn_evento_invitar);
         this.barraLateral =itemView.findViewById(R.id.barraLateral);
-
+        this.cardViewEventos= itemView.findViewById(R.id.card_view_eventos);
 
     }
 }

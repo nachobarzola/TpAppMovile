@@ -26,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.appmovil.Dominio.Evento;
 import com.example.appmovil.Dominio.Invitacion;
 import com.example.appmovil.Dominio.dao.InvitacionesRepository;
+import com.example.appmovil.Presentacion.DetalleEventoActivity;
 import com.example.appmovil.Presentacion.ListaEventos;
 import com.example.appmovil.R;
 import com.example.appmovil.Services.MyBroadcastReceiver;
@@ -122,6 +123,13 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
                     }
                 });
                 builder.show();
+            }
+        });
+        holder.cardViewEventos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iDetallesEvento= new Intent(v.getContext(), DetalleEventoActivity.class);
+                v.getContext().startActivity(iDetallesEvento);
             }
         });
 

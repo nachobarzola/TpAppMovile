@@ -15,6 +15,17 @@
     <color name="colorBarraLateral3">#2BBFBF</color>
     <color name="colorBarraLateral4">#2BE170</color>
 
+    //Colores para la actividad detalles de eventos
 
+    <color name="colorToolbarDetalleEvento">#B622D3</color>
+    <color name="colorTextoDetalleEvento">#EAEAEA</color>
+
+
+    <color name="color1DetalleEvento">#D15B5B</color>
+    <color name="color2DetalleEvento">#3A424A</color>
+    <color name="color3DetalleEvento">#A1A1A2</color>
+
+    //Colores para actividad lista de invitados
+    <color name="colorBarrasInvitados">#3A424A</color>
 
 </resources>
