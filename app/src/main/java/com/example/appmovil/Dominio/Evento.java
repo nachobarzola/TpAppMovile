@@ -3,7 +3,9 @@ package com.example.appmovil.Dominio;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Evento {
+import java.io.Serializable;
+
+public class Evento implements Serializable {
 
     @SerializedName("id")
     @Expose

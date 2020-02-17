@@ -36,12 +36,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
+/*
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+ */
 
 public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder> {
 
@@ -53,7 +56,7 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
 
     private Context contexto;
     //Logica de correo
-    private Session session;
+    //private Session session;
     private String _CORREOAPP="controlEventosQR@gmail.com";
     private String _CONTRASEÑACOREEOAPP="facunacho";
     //-----
@@ -128,7 +131,9 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
         holder.cardViewEventos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent iDetallesEvento= new Intent(v.getContext(), DetalleEventoActivity.class);
+                iDetallesEvento.putExtra("evento",evento);
                 v.getContext().startActivity(iDetallesEvento);
             }
         });
@@ -209,7 +214,7 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
         properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
         properties.put("mail.smtp.auth","true");
         properties.put("mail.smtp.port","465");
-        try{
+      /*  try{
             session= Session.getDefaultInstance(properties, new Authenticator() {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
@@ -230,7 +235,7 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
                 Transport.send(message);
             }
         }catch (Exception e){ }
-
+*/
 
     }
 }

@@ -48,7 +48,7 @@ public class MenuActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         inicializarElementosGraficos();
-        nombreUsuario= UsuariosRepository.getInstance().getUser().getName();
+        nombreUsuario= UsuariosRepository.getInstance().getUser().getGivenName();
         tvNombre.setText("Bienvenido "+nombreUsuario);
 
         btn_crearEvento.setOnClickListener(new View.OnClickListener() {

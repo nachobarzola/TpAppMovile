@@ -30,7 +30,7 @@ public class InvitacionesRepository {
     public static String _SERVER="http://192.157.192.222/api/";
 
     //LOCAL
-    //public static String _SERVER="http://192.168.0.23:58500/api/";
+    //public static String _SERVER="http://192.168.0.17:58500/api/";
 
     private Retrofit rf;
 
@@ -105,6 +105,29 @@ public class InvitacionesRepository {
             }
         });
     }
+
+    public void ObtenerPorEvento(int eventoId, final Handler h){
+        Call<List<Invitacion>> llamada = this._invitacionesRest.ObtenerPorEvento(eventoId);
+        llamada.enqueue(new Callback<List<Invitacion>>() {
+            @Override
+            public void onResponse(Call<List<Invitacion>> call, Response<List<Invitacion>> response) {
+                if(response.isSuccessful()){
+
+                    Message m=new Message();
+                    m.obj=response.body();
+                    h.sendMessage(m);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Invitacion>> call, Throwable t) {
+                Message m=new Message();
+                m.arg1=1;
+                h.sendMessage(m);
+            }
+        });
+    }
+
     public void Guardar(final Invitacion invitacion, final Handler h) {
         Log.d("repo","ingreso");
         Call<Void> llamada = this._invitacionesRest.Guardar(invitacion);

@@ -42,6 +42,7 @@
             android:name=".Presentacion.MisInvitacionesActivity"
             android:parentActivityName=".Presentacion.MenuActivity" />
         <activity android:name=".Presentacion.CrearEventoActivity" />
+        <activity android:name=".Presentacion.DetalleEventoActivity" />
         <activity android:name=".Presentacion.MenuActivity" />
         <activity android:name=".Presentacion.LoginActivity">
             <intent-filter>

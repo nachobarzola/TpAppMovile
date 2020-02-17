@@ -15,6 +15,9 @@ public interface InvitacionesRest {
     @GET("invitaciones/{email}")
     Call<List<Invitacion>> Obtener(@Path(value = "email", encoded = true) String email);
 
+    @GET("invitaciones/evento/{eventoId}")
+    Call<List<Invitacion>> ObtenerPorEvento(@Path(value = "eventoId", encoded = true) int eventoId);
+
     @POST("invitaciones")
     Call<Void> Guardar(@Body Invitacion invitacion);
 

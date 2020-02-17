@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.appmovil.R;
 
 public class InvitadosViewHolder extends RecyclerView.ViewHolder{
-    public TextView tvCorreo;
+    public TextView tvCorreo,tvEstado;
     public FrameLayout barraLateralDer,barraLateralIzq;
 
 
@@ -20,6 +20,7 @@ public class InvitadosViewHolder extends RecyclerView.ViewHolder{
 
 
         tvCorreo=itemView.findViewById(R.id.tvCorreo);
+        tvEstado=itemView.findViewById(R.id.tvEstado);
         barraLateralDer=itemView.findViewById(R.id.barraLateralDer);
         barraLateralIzq=itemView.findViewById(R.id.barraLateralIzq);
 

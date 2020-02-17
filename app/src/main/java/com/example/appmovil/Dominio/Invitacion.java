@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
-public class Invitacion {
+public class Invitacion  {
     @SerializedName("id")
     @Expose
     private int id;

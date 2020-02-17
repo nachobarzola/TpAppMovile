@@ -24,7 +24,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 
         NotificationCompat.Builder mBuilder=
                 new NotificationCompat.Builder(context,CHANNEL_ID)
-                        .setSmallIcon(R.drawable.add_icon_contact)
+                        .setSmallIcon(R.drawable.qr_icon)
                 .setContentTitle(intent.getExtras().getString("data1"))
                 .setContentText(intent.getExtras().getString("data2"))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);

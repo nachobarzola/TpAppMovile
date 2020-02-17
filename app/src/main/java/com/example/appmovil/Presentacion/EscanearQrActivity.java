@@ -99,7 +99,7 @@ public class EscanearQrActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             Context context = getApplicationContext();
             CharSequence text;
-            int duration = Toast.LENGTH_SHORT;
+            int duration = Toast.LENGTH_LONG;
             Toast toast;
             switch (msg.arg1 ){
                 case 0:
@@ -111,6 +111,7 @@ public class EscanearQrActivity extends AppCompatActivity {
                     text = "ERROR EN LA RED";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
+                    finish();
                     break;
 
             }

@@ -57,6 +57,7 @@ public class ListaEventos extends AppCompatActivity {
                 .registerReceiver(br,filtro);
 
         //NOTIFICACIONES
+
         Usuario usuario = UsuariosRepository.getInstance().getUser();
 
         EventosRepository.getInstance().ObtenerEventos(usuario,miHandler);
@@ -104,4 +105,16 @@ public class ListaEventos extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        eventos.clear();
+
+        eventos.addAll( EventosRepository.getInstance().getListaEventos());
+
+        mAdapter.notifyDataSetChanged();
+
+    }
 }

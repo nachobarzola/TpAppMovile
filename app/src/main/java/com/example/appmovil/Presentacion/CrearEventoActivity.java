@@ -59,15 +59,35 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
     private GoogleMap mMap;
     private MarkerOptions marcador;
 
+    private Evento evento;
 
     private String usuario_id;
     private double latitud,longitud;
     private String direccion;
+    private int eventoId = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_evento);
+
+        Intent i = getIntent();
+        evento=(Evento)i.getSerializableExtra("evento");
         inicializarElementosGraficos();
+
+        //ESTOY POR EDITAR
+        if(evento!=null){
+            et_nombre.setText(evento.getNombre());
+            et_descripcion.setText(evento.getDescripcion());
+            tvFecha.setText(evento.getFecha());
+            tvHora.setText(evento.getHora());
+            direccion=evento.getUbicacion();
+            latitud=evento.getLatitud();
+            longitud=evento.getLongitud();
+            eventoId=evento.getId();
+
+        }
+
 
         //NOTIFICACIONES
         BroadcastReceiver br = new MyBroadcastReceiver();
@@ -108,7 +128,7 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
                 case 0:
                     Intent i = new Intent();
                     i.putExtra("data1","Evento guardado");
-                    i.putExtra("data2","Se creó el nuevo evento");
+                    i.putExtra("data2","Evento se guardó correctamente");
                     i.setAction(MyBroadcastReceiver.EVENTO_01);
                     sendBroadcast(i);
 
@@ -182,8 +202,13 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
                 Toast.makeText(v.getContext(),"El nombre es obligatorio",Toast.LENGTH_LONG).show();
             }else {
                 //El id del evento lo genera el servidor
-                Evento evento = new Evento(0, nombre, descripcion, fecha, hora, direccion, usuario_id, latitud, longitud);
-                EventosRepository.getInstance().Guardar(evento, miHandler);
+                Evento eventox = new Evento(eventoId, nombre, descripcion, fecha, hora, direccion, usuario_id, latitud, longitud);
+
+                if(eventoId==0)
+                    EventosRepository.getInstance().Guardar(eventox, miHandler);
+                else
+                    EventosRepository.getInstance().Actualizar(eventox, miHandler);
+
             }
         }
         //-----------------------

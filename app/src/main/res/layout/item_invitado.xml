@@ -12,24 +12,40 @@
         android:layout_height="match_parent"
         android:background="@color/colorFondoCard">
 
+        <FrameLayout
+            android:id="@+id/barraLateralIzq"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorBarrasInvitados"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </FrameLayout>
+
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/barraLateralIzq"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_expand_less_black_24dp" />
 
         <TextView
             android:id="@+id/tvCorreo"
-            android:layout_width="350dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvEstado"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/barraLateralDer"
+            app:layout_constraintStart_toEndOf="@+id/tvCorreo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <FrameLayout
@@ -43,16 +59,6 @@
 
         </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/barraLateralIzq"
-            android:layout_width="5dp"
-            android:layout_height="match_parent"
-            android:background="@color/colorBarrasInvitados"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

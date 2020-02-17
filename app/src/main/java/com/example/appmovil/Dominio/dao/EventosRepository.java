@@ -24,7 +24,7 @@ public class EventosRepository {
     public static String _SERVER="http://192.157.192.222/api/";
 
     //LOCAL
-    //public static String _SERVER="http://192.168.0.23:58500/api/";
+    //public static String _SERVER="http://192.168.0.11:58500/api/";
 
     private Retrofit rf;
 
@@ -82,6 +82,33 @@ public class EventosRepository {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if(response.isSuccessful()){
                     listaEventos.add(evento);
+                    Message m=new Message();
+                    m.arg1=0;
+                    h.sendMessage(m);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Message m=new Message();
+                m.arg1=1;
+                h.sendMessage(m);
+            }
+        });
+    }
+
+    public void Actualizar(final Evento evento, final Handler h){
+        Call<Void> llamada = this._eventosRest.Actualizar(evento);
+        llamada.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(response.isSuccessful()){
+                    int index=0;
+                    for(int i=0;i<listaEventos.size();i++){
+                        if(listaEventos.get(i).getId()==evento.getId())
+                            index=i;
+                    }
+                    listaEventos.set(index,evento);
                     Message m=new Message();
                     m.arg1=0;
                     h.sendMessage(m);

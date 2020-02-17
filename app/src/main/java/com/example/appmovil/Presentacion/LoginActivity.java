@@ -30,9 +30,6 @@ import com.example.appmovil.Dominio.dao.UsuariosRepository;
 import com.example.appmovil.Dominio.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
-    private Button btn_iniciarSesion;
-    private EditText etEmail;
-    private EditText etPassword;
 
     SignInButton signInButton;
     GoogleSignInClient mGoogleSignInClient;
@@ -96,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
+/*
         btn_iniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
@@ -137,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
+*/
     }
 
     @Override
@@ -204,9 +201,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     };
     private void inicializarElementosGraficos(){
-        this.btn_iniciarSesion=findViewById(R.id.btn_IniciarSesion);
-        this.etEmail=findViewById(R.id.etEmail);
-        this.etPassword=findViewById(R.id.etPassword);
+
         this.signInButton=findViewById(R.id.sign_in_button);
     }
 
