@@ -34,4 +34,7 @@
     //Actividad detalle evento
     <string name="detalleEvento_tvEvento">Nombre</string>
     <string name="detalleEvento_tvDescripcion">Descripción</string>
+    <string name="detalleEvento_tvInvitados">Invitados</string>
+
+
 </resources>

@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.appmovil.Dominio.Invitacion;
 import com.example.appmovil.Dominio.Usuario;
 import com.example.appmovil.R;
-import com.example.appmovil.ViewHolder.EventoViewHolder;
 import com.example.appmovil.ViewHolder.InvitadosViewHolder;
 
 import java.util.List;
