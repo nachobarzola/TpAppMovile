@@ -9,7 +9,18 @@
 
     //Para la actividad login
     <color name="colorFondoLogin">#32323C</color>
-    <color name="colorLogin">#BEE069</color>
+    <color name="colorLogin">#3B9BC5</color>
+
+    //Para la actividad menu
+    <color name="colorFondoMenu">#39393D</color>
+    <color name="colorMenu">#62A4EE</color>
+    <color name="colorBotonMenu">#303033</color>
+    <color name="colorTextBotonMenu">#ABF2F3F4</color>
+    <color name="colorDivisorMenu">#2E2E31</color>
+
+
+
+
 
     //Para listas
     <color name="colorFondoLista">#EAEAEA</color>
