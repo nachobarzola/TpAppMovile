@@ -47,4 +47,13 @@
     //Colores para actividad lista de invitados
     <color name="colorBarrasInvitados">#3A424A</color>
 
+    //Colores para actividad crear evento
+    <color name="colorCrearEventoFondo">#39393D</color>
+    <color name="colorCrearEventoFondoToolbar">#252525</color>
+    <color name="colorCrearEventoToolbarDivisor">#ED0A0A0A</color>
+    <color name="colorCrearEventoFondoTV">#4C4C4E</color>
+    <color name="colorCrearEventoBordesTV">#E11C87A3</color>
+    <color name="colorCrearEventoText">#E1DFDFDF</color>
+
+
 </resources>

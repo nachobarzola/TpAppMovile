@@ -53,7 +53,7 @@ import java.util.List;
 public class CrearEventoActivity extends  FragmentActivity implements View.OnClickListener, OnMapReadyCallback {
 
     private TextView tvFecha,tvHora,tvUbicacion;
-    private Button btnFecha,btnHora;
+    private ImageButton btnFecha,btnHora;
     private FloatingActionButton btnGuardar;
     private  EditText et_nombre,et_descripcion;
     private GoogleMap mMap;

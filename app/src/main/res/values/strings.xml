@@ -15,12 +15,16 @@
     //Actividad crear evento
     <string name="crearEvento_tileToolbar">Registro de nuevo evento</string>
     <string name="crearEvento_textNombre">Nombre</string>
+    <string name="crearEvento_textHintNombre">Ingrese un nombre para el evento</string>
     <string name="crearEvento_textDescripcion">Descripción</string>
+    <string name="crearEvento_textHintDescripcion">Ingrese una descripción para el evento</string>
     <string name="crearEvento_btnFecha">Fecha</string>
     <string name="crearEvento_textFecha">dd/mm/aaaa</string>
     <string name="crearEvento_btnHora">Hora</string>
     <string name="crearEvento_textHora">hh:mm</string>
-    <string name="crearEvento_textDireccion">Ubicacion: </string>
+    <string name="crearEvento_textDireccion">Ubicacion </string>
+
+
 
     //Menu
     <string name="menu_opcion1">Mis datos</string>
