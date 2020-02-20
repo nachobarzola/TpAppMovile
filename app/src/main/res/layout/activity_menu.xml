@@ -32,7 +32,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:background="@drawable/btn_iniciarsesion"
+        android:background="@drawable/btn_menu"
         android:text="@string/menu_btnCrearEvento"
         android:textColor="@color/colorFondoPrincipal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
         app:layout_constraintStart_toStartOf="@+id/btn_crearEvento"
         app:layout_constraintTop_toBottomOf="@+id/btn_crearEvento"
         android:textColor="@color/colorFondoPrincipal"
-        android:background="@drawable/btn_iniciarsesion"
+        android:background="@drawable/btn_menu"
         />
 
     <Button
@@ -63,7 +63,7 @@
         app:layout_constraintStart_toStartOf="@+id/btn_listaEventos"
         app:layout_constraintTop_toBottomOf="@+id/btn_listaEventos"
         android:textColor="@color/colorFondoPrincipal"
-        android:background="@drawable/btn_iniciarsesion"
+        android:background="@drawable/btn_menu"
         />
     <Button
         android:id="@+id/btn_escanerQR"
@@ -75,6 +75,6 @@
         app:layout_constraintStart_toStartOf="@+id/btn_mis_invitaciones"
         app:layout_constraintTop_toBottomOf="@+id/btn_mis_invitaciones"
         android:textColor="@color/colorFondoPrincipal"
-        android:background="@drawable/btn_iniciarsesion"/>
+        android:background="@drawable/btn_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

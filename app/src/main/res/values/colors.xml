@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    //Para actividades generales
     <color name="colorFondoPrincipal">#F2F3F4</color>
     <color name="colorPrimary">#2874A6</color>
     <color name="colorPrimaryDark">#252525</color>
     <color name="colorAccent">#053D7C</color>
 
 
+    //Para la actividad login
+    <color name="colorFondoLogin">#32323C</color>
+    <color name="colorLogin">#BEE069</color>
+
+    //Para listas
     <color name="colorFondoLista">#EAEAEA</color>
     <color name="colorFondoCard">#F9F8F8</color>
 

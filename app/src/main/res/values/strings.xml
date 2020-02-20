@@ -3,12 +3,8 @@
 
 
     //Actividad Login:
-    <string name="login_textEmail">Email</string>
-    <string name="login_textPassword">Contraseña</string>
     <string name="login_btnIniciarSesion">Iniciar sesión</string>
-    <string name="login_btnRegistrar">Registrar</string>
-    <string name="login_textRecordar">Recordar usuario y contraseña</string>
-    <string name="login_textOlvidaste">¿Olvidaste tu contraseña?</string>
+    <string name="login_textInicioDeGoogle">Inicio de sesión de google</string>
 
     //Actividad Menu:
     <string name="menu_btnCrearEvento">Crear Evento</string>

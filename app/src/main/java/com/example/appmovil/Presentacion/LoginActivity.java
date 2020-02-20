@@ -31,7 +31,7 @@ import com.example.appmovil.Dominio.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
 
-    SignInButton signInButton;
+    Button signInButton;
     GoogleSignInClient mGoogleSignInClient;
 
     @Override
@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        signInButton.setSize(SignInButton.SIZE_WIDE);
+        //signInButton.setSize(SignInButton.SIZE_WIDE);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,7 +202,7 @@ public class LoginActivity extends AppCompatActivity {
     };
     private void inicializarElementosGraficos(){
 
-        this.signInButton=findViewById(R.id.sign_in_button);
+        this.signInButton=findViewById(R.id.btn_iniciarSesion);
     }
 
 }
