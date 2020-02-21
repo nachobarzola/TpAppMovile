@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_eventos"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:layout_gravity="center"
         card_view:cardBackgroundColor="@color/colorFondoCard"
         card_view:cardCornerRadius="10dp"
@@ -20,8 +20,7 @@
             android:layout_gravity="center"
             android:orientation="vertical"
             tools:layout_editor_absoluteX="10dp"
-            tools:layout_editor_absoluteY="11dp"
-            >
+            tools:layout_editor_absoluteY="11dp">
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -46,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent" />
