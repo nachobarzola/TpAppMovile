@@ -23,7 +23,6 @@
     <color name="colorFondoLista">#EAEAEA</color>
     <color name="colorFondoCard">#F9F8F8</color>
 
-
     <color name="colorBarraLateral">#BA68C8</color>
     <color name="colorBarraLateral2">#D8E12B</color>
     <color name="colorBarraLateral3">#2BBFBF</color>
@@ -33,9 +32,6 @@
 
     <color name="colorToolbarDetalleEvento">#B622D3</color>
     <color name="colorTextoDetalleEvento">#EAEAEA</color>
-
-
-    <color name="color1DetalleEventoxxx">#E8D15B5B</color>
 
 
     <color name="color1DetalleEvento">#E11C87A3</color>
@@ -52,8 +48,9 @@
     <color name="colorCrearEventoFondoToolbar">#252525</color>
     <color name="colorCrearEventoToolbarDivisor">#ED0A0A0A</color>
     <color name="colorCrearEventoFondoTV">#4C4C4E</color>
-    <color name="colorCrearEventoBordesTV">#E11C87A3</color>
+    <color name="colorCrearEventoBordesTV">#E1DFDFDF</color>
     <color name="colorCrearEventoText">#E1DFDFDF</color>
+    <color name="colorCrearEventoBtnFlotante">#E1DFDFDF</color>
 
 
 </resources>

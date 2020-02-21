@@ -38,7 +38,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_menu_save"
-        android:backgroundTint="@color/colorCrearEventoBordesTV"/>
+        android:backgroundTint="@color/colorCrearEventoBtnFlotante"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -71,11 +71,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:src="@drawable/ic_fecha_crear_evento"
+                android:src="@drawable/ic_nombre_crear_evento"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_nombre_crear_evento" />
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
@@ -220,11 +219,11 @@
     <FrameLayout
         android:id="@+id/frameLayout4"
         android:layout_width="70dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="110dp"
         android:background="@drawable/crearevento_diseno_campos"
         app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/tvHora">
+        app:layout_constraintTop_toBottomOf="@+id/et_descripcion_evento">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -246,10 +245,11 @@
     <TextView
         android:id="@+id/tvUbicacion"
         android:layout_width="335dp"
-        android:layout_height="35dp"
+        android:layout_height="40dp"
         android:layout_marginStart="35dp"
         android:background="@drawable/crearevento_diseno_campos2"
         android:text=""
+        android:textAlignment="center"
         android:textColor="@color/colorCrearEventoText"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout4"
@@ -259,7 +259,7 @@
     <FrameLayout
         android:layout_width="384dp"
         android:layout_height="244dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:background="@color/colorCrearEventoBordesTV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
