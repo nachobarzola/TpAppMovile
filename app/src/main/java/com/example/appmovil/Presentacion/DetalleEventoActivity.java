@@ -69,6 +69,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                 Intent iEditarEvento= new Intent(v.getContext(), CrearEventoActivity.class);
                 iEditarEvento.putExtra("evento",evento);
                 v.getContext().startActivity(iEditarEvento);
+                finish();
             }
         });
 
