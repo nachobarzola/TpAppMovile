@@ -92,6 +92,8 @@ public class ListaEventos extends AppCompatActivity {
         public void handleMessage(Message msg) {
             switch (msg.arg1 ){
                 case 0:
+                    eventos.clear();
+
                     eventos.addAll( EventosRepository.getInstance().getListaEventos());
 
                     mAdapter.notifyDataSetChanged();

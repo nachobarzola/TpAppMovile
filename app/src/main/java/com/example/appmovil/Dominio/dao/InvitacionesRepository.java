@@ -26,11 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class InvitacionesRepository {
     private List<Invitacion> listaInvitaciones;
 
-    //INTERNET
-    public static String _SERVER="http://192.157.192.222/api/";
-
-    //LOCAL
-    //public static String _SERVER="http://192.168.0.17:58500/api/";
+    public static String _SERVER=Server.ServerAdress;
 
     private Retrofit rf;
 

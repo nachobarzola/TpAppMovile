@@ -105,7 +105,7 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
                 builder.setView(input);
 
                 // Set up the buttons
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String email;
@@ -114,12 +114,12 @@ public class EventoRecyclerAdapter extends RecyclerView.Adapter<EventoViewHolder
                         Invitacion invitacion=new Invitacion(0,email,evento.getId(),"CREADA", new Date());
                         Log.d("invitacionCreada",String.valueOf(invitacion.getEventoId()));
                         InvitacionesRepository.getInstance().Guardar(invitacion,miHandler);
-                //Envio de la envitacion por mail
+                        //Envio de la envitacion por mail
                         enviarCorreoElectronico(email,"Beach Fest","Juan Blanco","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sullae consulatum? Non risu potius quam oratione eiciendum? Cum praesertim illa perdiscere ludus esset.","16/12/2020","02:00");
 
                     }
                 });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
