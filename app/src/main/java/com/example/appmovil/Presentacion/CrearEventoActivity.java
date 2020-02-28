@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.BroadcastReceiver;
@@ -12,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.media.Image;
@@ -19,6 +21,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -52,7 +56,7 @@ import java.util.List;
 
 public class CrearEventoActivity extends  FragmentActivity implements View.OnClickListener, OnMapReadyCallback {
 
-    private TextView tvFecha,tvHora,tvUbicacion;
+    private TextView tvFecha,tvHora,tvUbicacion,tvLimiteNombre,tvLimiteDescripcion;
     private ImageButton btnFecha,btnHora;
     private FloatingActionButton btnGuardar;
     private  EditText et_nombre,et_descripcion;
@@ -109,6 +113,28 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        //CODIGO PARA CONTROLAR TEXTO DEL LIMITE DE CAMPO
+        et_nombre.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                tvLimiteNombre.setText(String.valueOf(s.length()) + "/40");
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+        et_descripcion.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                tvLimiteDescripcion.setText(String.valueOf(s.length()) + "/500");
+            }
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
 
 
 
@@ -221,6 +247,8 @@ public class CrearEventoActivity extends  FragmentActivity implements View.OnCli
         tvHora=findViewById(R.id.tvHora);
         tvUbicacion=findViewById(R.id.tvUbicacion);
         btnGuardar=findViewById(R.id.btn_guardarEvento);
+        tvLimiteNombre=findViewById(R.id.textLimiteNombre);
+        tvLimiteDescripcion=findViewById(R.id.textLimiteDescripcion);
 
 
 

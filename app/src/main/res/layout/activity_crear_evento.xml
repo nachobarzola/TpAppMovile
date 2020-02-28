@@ -79,6 +79,17 @@
 
     </FrameLayout>
 
+    <TextView
+        android:id="@+id/textLimiteNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="0/40"
+        app:layout_constraintEnd_toEndOf="@+id/et_nombre_evento"
+        app:layout_constraintTop_toBottomOf="@+id/et_nombre_evento"
+        android:textColor="@color/colorCrearEventoText"
+        android:textSize="10dp"/>
+
     <EditText
         android:id="@+id/et_nombre_evento"
         android:layout_width="335dp"
@@ -94,7 +105,9 @@
         android:textColorHint="@color/colorCrearEventoText"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
-        app:layout_constraintTop_toTopOf="@+id/frameLayout" />
+        app:layout_constraintTop_toTopOf="@+id/frameLayout"
+        android:maxLength="40"
+        android:digits="abcdefghijklmnñopqrstuvwxyz1234567890 ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -149,7 +162,20 @@
         android:hint="@string/crearEvento_textHintDescripcion"
         android:textAlignment="center"
         android:textSize="15dp"
-        />
+        android:maxLength="500"
+        android:digits="abcdefghijklmnñopqrstuvwxyz1234567890 ABCDEFGHIJKLMNÑOPQRSTUVWXYZ!¡¿?,.-_()/#$%"/>
+    />
+
+    <TextView
+        android:id="@+id/textLimiteDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="0/500"
+        app:layout_constraintEnd_toEndOf="@+id/et_descripcion_evento"
+        app:layout_constraintTop_toBottomOf="@+id/et_descripcion_evento"
+        android:textSize="10dp"
+        android:textColor="@color/colorCrearEventoText"/>
 
     <ImageButton
         android:id="@+id/btnFecha"
